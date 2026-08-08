@@ -1,24 +1,26 @@
 import { StyleSheet } from "react-native";
 
 export const theme = {
-    Background: '#0A0A0A',
-    tint: "yellow",
-    text: "white",
-    button: "#333",
+    background: '#121214',
+    surface: '#1E1E24',
+    surfaceAlt: '#2A2A33',
+    tint: '#F2C94C',
+    text: '#FFFFFF',
+    textMuted: '#9A9AA4',
 };
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: theme.Background,
+        backgroundColor: theme.background,
+        padding: 16,
         alignItems: 'center',
-        justifyContent: 'center',
     },
     containerButton: {
-        backgroundColor: theme.button,
+        backgroundColor: theme.surfaceAlt,
         height: 60,
         alignSelf: "stretch",
-        margin: 16,
+        marginTop: 16,
         borderRadius: 16,
         alignItems: "center",
         justifyContent: "center",
@@ -30,34 +32,41 @@ export const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontWeight: "200",
-        color: "white",
+        fontWeight: "300",
+        marginTop: 6,
+        color: theme.text,
     },
     textInputContainer: {
         height: 50,
         alignSelf: "stretch",
-        margin: 16,
         marginTop: 10,
-        borderRadius: 8,
+        borderRadius: 16,
         paddingHorizontal: 16,
-        backgroundColor: "#222",
-        color: "white",
+        backgroundColor: theme.surface,
+        color: theme.text,
     },
     card: {
         justifyContent: "center",
         height: 80,
         paddingHorizontal: 16,
         alignSelf: "stretch",
-        margin: 16,
-        borderRadius: 8,
-        padding: 16,
-        backgroundColor: "#111",
-        color: "white",
+        marginTop: 16,
+        borderRadius: 16,
+        backgroundColor: theme.surface,
+        color: theme.text,
+        // sombra para dar sensacao de elevacao (iOS)
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.35,
+        shadowRadius: 6,
+        // sombra para dar sensacao de elevacao (Android)
+        elevation: 6,
     },
     description: {
-        fontSize: 14,
-        fontWeight: "200",
-        color: "#999",
+        fontSize: 16,
+        fontWeight: "300",
+        marginTop: 6,
+        color: theme.textMuted,
     },
     checkbox: {
         position: "absolute",
@@ -67,6 +76,6 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 8,
-        backgroundColor: theme.button,
+        backgroundColor: theme.surfaceAlt,
     }
 });
