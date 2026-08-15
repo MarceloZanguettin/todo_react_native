@@ -33,6 +33,10 @@ export default function Index() {
     );
   }
 
+  const deleteItem = (id: string) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  }
+
   return (
     <View style={styles.container}>
       <SuperTitle title="Lista de compras" upperCase={true} />
@@ -46,7 +50,8 @@ export default function Index() {
           title={todo.title}
           completed={todo.completed}
           updateItem={updateItem}
-          />;
+          deleteItem={deleteItem}
+        />;
       })}
 
       

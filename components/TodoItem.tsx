@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Text, TouchableOpacity, View } from "react-native";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
 export interface ITodo {
@@ -10,11 +10,30 @@ export interface ITodo {
 
 interface ITodoItemProps extends ITodo {
     updateItem: (id: string) => void;
+    deleteItem: (id: string) => void;
 }
 
-export default function TodoItem({ id, title, completed, updateItem }: ITodoItemProps) {
+export default function TodoItem({ id, title, completed, updateItem, deleteItem }: ITodoItemProps) {
     const uptadeTodo = () => {
       updateItem(id);
+    };
+
+    const deleteTodo = () => {
+      Alert.alert(
+        "Deletar item",
+        "Tem certeza que deseja deletar este item?",
+        [
+          {
+            text: "Cancelar",
+            style: "cancel"
+          },
+          {
+            text: "Excluir",
+            style: "destructive",
+            onPress: () => deleteItem(id)
+          }
+        ]
+      );
     };
 
   return (
@@ -22,6 +41,7 @@ export default function TodoItem({ id, title, completed, updateItem }: ITodoItem
       onPress={uptadeTodo}
       activeOpacity={0.7}
       style={styles.card}
+      onLongPress={deleteTodo}
     >
       <Text style={styles.titleButton}>{title}</Text>
       <Text style={styles.description}>subtitulo</Text>
